@@ -160,6 +160,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.light-service.even
 
+# Properties
+include $(LOCAL_PATH)/vendor_logtag.mk
+
 # Media
 PRODUCT_PACKAGES += \
     libcodec2_hidl@1.1.vendor \

@@ -11,7 +11,7 @@
 /dev/oplus_display                                                                                                     u:object_r:oplus_display_device:s0
 
 # Light
-/(vendor|system/vendor)/bin/hw/android\.hardware\.light-service\.salaa                                                 u:object_r:hal_light_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.light-service\.even                                                 u:object_r:hal_light_default_exec:s0
 
 # Sensors
 /(odm|vendor/odm)/bin/hw/vendor\.oplus\.hardware\.oplusSensor@1\.0-service                                             u:object_r:mtk_hal_sensors_exec:s0

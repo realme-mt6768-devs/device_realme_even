@@ -23,9 +23,6 @@ PRODUCT_MODEL := realme C25/C25s/Narzo 50A
 
 PRODUCT_GMS_CLIENTID_BASE := android-oppo
 
-# ArrowOS additions
-DEVICE_MAINTAINER := ismasrull
-
 PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_DEVICE=even \
     PRODUCT_NAME=even \

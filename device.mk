@@ -88,6 +88,12 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.5.vendor \
     android.hardware.camera.provider@2.6.vendor \
     libcamera2ndk_vendor
+    
+    # Cgroup
+PRODUCT_COPY_FILES += \
+    system/core/libprocessgroup/profiles/cgroups_30.json:$(TARGET_COPY_OUT_VENDOR)/etc/cgroups.json \
+    $(LOCAL_PATH)/configs/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
+    
 
 # Doze
 PRODUCT_PACKAGES += \
@@ -95,7 +101,7 @@ PRODUCT_PACKAGES += \
 
 # DRM
 PRODUCT_PACKAGES += \
-android.hardware.drm-service.clearkey
+    android.hardware.drm-service.clearkey
 
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0.vendor \
@@ -212,11 +218,17 @@ PRODUCT_PACKAGES += \
     android.hardware.usb.gadget@1.0.vendor \
     android.hardware.usb.gadget@1.1.vendor
 
-# Overlays
-PRODUCT_ENFORCE_RRO_TARGETS := *
-
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay
+# Runtime Resource Overlays 
+PRODUCT_PACKAGES += \
+    ApertureOverlayeven \
+    CarrierConfigOverlayeven \
+    FrameworksResOverlayeven \
+    SettingsOverlayeven \
+    SettingsProviderOverlayeven \
+    SystemUIOverlayeven \
+    TelephonyOverlayeven \
+    TetheringResOverlayeven \
+    WifiResOverlayeven
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -264,6 +276,14 @@ PRODUCT_PACKAGES += \
     android.hardware.power@1.0.vendor \
     android.hardware.power@1.1.vendor \
     android.hardware.power@1.2.vendor
+    
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+
+# Public libraries
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
+    
 
 # Radio
 PRODUCT_PACKAGES += \
@@ -357,7 +377,7 @@ PRODUCT_COPY_FILES += \
     prebuilts/vndk/v33/arm64/arch-arm-armv8-a/shared/vndk-core/libstagefright_foundation.so:$(TARGET_COPY_OUT_VENDOR)/lib/libstagefright_foundation-v33.so \
     prebuilts/vndk/v33/arm64/arch-arm64-armv8-a/shared/vndk-core/libstagefright_foundation.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libstagefright_foundation-v33.so
 
-
+    
 # Wi-Fi
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.1.vendor \
@@ -379,7 +399,7 @@ PRODUCT_PACKAGES += \
     android.hardware.tetheroffload.control@1.1.vendor
 
 PRODUCT_PACKAGES += \
-    android.hardware.wifi-service
+    android.hardware.wifi-service 
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \

@@ -372,11 +372,6 @@ PRODUCT_PACKAGES += \
     libutils-v32 \
     libcrypto-v32 \
     libssl-v32
-
-PRODUCT_COPY_FILES += \
-    prebuilts/vndk/v33/arm64/arch-arm-armv8-a/shared/vndk-core/libstagefright_foundation.so:$(TARGET_COPY_OUT_VENDOR)/lib/libstagefright_foundation-v33.so \
-    prebuilts/vndk/v33/arm64/arch-arm64-armv8-a/shared/vndk-core/libstagefright_foundation.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libstagefright_foundation-v33.so
-
     
 # Wi-Fi
 PRODUCT_PACKAGES += \
@@ -399,7 +394,9 @@ PRODUCT_PACKAGES += \
     android.hardware.tetheroffload.control@1.1.vendor
 
 PRODUCT_PACKAGES += \
-    android.hardware.wifi-service 
+    android.hardware.wifi@1.0-service-lazy \
+    hostapd \
+    wpa_supplicant
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
